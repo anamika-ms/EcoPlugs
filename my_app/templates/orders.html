@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Orders</title>
+  <style>
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      background-image: url("{% static 'images\8762ca156b3544c25423d2509515eadb.jpg' %}");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    .container {
+  max-width: 1000px;
+  margin: 20px auto;
+  background-color: rgba(255, 255, 255, 0.791); /* Semi-transparent white background */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: rgb(8, 8, 8); /* Text color */
+  border-radius: 15px; /* Add border-radius for curved edges */
+}
+
+    h2.main-heading {
+      color: rgb(242, 234, 234);
+      font-family: "Times New Roman";
+      font-size: 250%;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      border: 2px solid rgb(4, 62, 4);
+      border-radius: 10px;
+      margin: 20px;
+      padding: 20px;
+      text-align: center;
+      font-size: 120%;
+      font-variant: small-caps;
+    }
+
+    b {
+      color: rgb(4, 62, 4);
+      font-variant: small-caps;
+      font-size: 150%;
+    }
+
+    a {
+            display: inline-block; 
+            background-color: rgb(243, 246, 243);
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        
+         a {
+            color: rgb(5, 5, 5); 
+            text-decoration: none;
+        }
+  </style>
+</head>
+
+<body>
+  <br>
+  <center>
+    <h2 class="main-heading">ORDERS</h2>
+  </center>
+  
+  <div class="container">
+    <ul>
+        {% for i in values %}
+      <li>
+        User Name : {{ i.fullname }}<br><br>
+        Station Name : {{ i.name }}<br><br>
+        Booking Time : {{ i.time }}<br><br>
+        Location : {{ i.location }}<br><br>
+        Amount Paid : {{ i.amount }}<br><br>
+        Contact : {{ i.contact }}<br><br>
+        <!-- <a href="/payment/{{i.id}}">book now</a> -->
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <center>
+  <a href="/ser_home" class="bn632-hover bn23">BACK</a>
+</center>
+</body>
+
+</html>
+
+

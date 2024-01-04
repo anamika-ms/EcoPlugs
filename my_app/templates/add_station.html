@@ -1,0 +1,188 @@
+{% load static %}
+<html>
+    <head>
+      <title>Add Station</title>
+            <style>
+               .bn632-hover {
+  width: 160px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px;
+  height: 55px;
+  text-align:center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.bn632-hover:hover {
+  background-position: 100% 0;
+  
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.bn632-hover:focus {
+  outline: none;
+}
+
+.bn632-hover.bn23 {
+  background-image: linear-gradient(
+    to right,
+    #009245,
+    #fcee21,
+    #00a8c5,
+    #d9e021
+  );
+  box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+}
+
+    table,th,td{
+          padding:20px;
+          }
+    form{
+          border:1px solid #22c4586c;
+          padding:10px;
+          margin:20px;
+          /* background-color:#05951b; */
+                  }
+h1{
+   color: beige;
+}
+   body{
+      background-image: url("{% static '\images\ev.jpeg' %}");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+   }
+  
+    input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family:"Times New Roman";
+    font-size:150%; 
+  }
+  
+  /* input[type=submit] {
+    width: 100%;
+    background-color: #100c09;
+    color: rgb(249, 247, 246);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family:"Times New Roman";
+    font-size:150%; 
+  } */
+  input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family:"Times New Roman";
+    font-size:150%; 
+  }
+  input[type=email] {
+    width: 100%;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family:"Times New Roman";
+    font-size:150%; 
+  }
+  input[type=time] {
+    width: 100%;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family:"Times New Roman";
+    font-size:150%; 
+  }
+  
+         </style>
+      </head>
+   <body>
+
+     
+      
+      <!-- form section start -->
+      <form action="/add_station/" method="post">
+         {% csrf_token %}
+         <center>
+             <table>
+                 <b><h1>ADD STATION</h1></b>
+                 <tr> 
+                             
+                  <td><input type="text" value={{lino}} placeholder="Enter License No" readonly></td>
+               </tr>
+              
+                 <tr> 
+                    
+                    <td><input type="text" name="rfname" placeholder="Enter Station Name" ></td>
+                 </tr>
+                
+                 <tr>
+                   
+                    <td><input type="text" name="rtime" placeholder="Enter Your Time" ></td>
+                 </tr>
+
+                 <tr>
+                   
+                   <td><input type="text" name="rlocation" placeholder="Enter Your Location" ></td>
+                </tr>
+                <tr>
+                            
+                  <td><input type="text" name="rcontact" placeholder="Enter Your Contact No" ></td>
+               </tr>
+                <tr>
+                   
+                  <td><input type="text" name="rspeed" placeholder="Enter Your Speed" ></td>
+               </tr>
+
+               <tr>
+                   
+                <td><input type="text" name="rprice" placeholder="Enter Your Price" ></td>
+             </tr>
+
+                 <tr>
+                    
+                    <td><select name="rstatus">
+                        <option value="available">available</option>
+                        <option value="not available">not available</option>
+                    </select></td>
+                 </tr>
+                 
+                
+                 <tr>
+                    <th><input type="submit" class="bn632-hover bn23" value="Register"></th>
+                 </tr>
+
+              </table> 
+              <button><a href="/ser_home" class="bn632-hover bn23">BACK</a></button>
+
+         </center>
+     </form>
+   </body>
+</html>

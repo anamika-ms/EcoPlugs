@@ -1,0 +1,138 @@
+{% load static %}
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>View Stations</title>
+          <style>
+        
+            body {
+              font-family: 'Arial', sans-serif;
+              background-color: #f4f4f4;
+              margin: 0;
+              padding: 0;
+              background-image: url("{% static 'images\ev.jpeg' %}");
+              background-repeat: no-repeat;
+              background-attachment: fixed;
+              background-size: cover;
+            }
+        
+            .container {
+              max-width: 1000px;
+              margin: 20px auto;
+              background-color: rgba(255, 255, 255, 0.791); /* Semi-transparent white background */
+              padding: 20px;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+              text-align: center;
+              color: rgb(8, 8, 8); /* Text color */
+              border-radius: 15px; 
+            }
+        
+            h2.main-heading {
+              color: rgb(242, 234, 234);
+              font-family: "Times New Roman";
+              font-size: 250%;
+            }
+        
+            ul {
+              list-style: none;
+              padding: 0;
+            }
+        
+            li {
+              border: 2px solid rgb(4, 62, 4);
+              border-radius: 10px;
+              margin: 20px;
+              padding: 20px;
+              text-align: center;
+              font-size: 120%;
+              font-variant: small-caps;
+            }
+        
+            b {
+              color: rgb(4, 62, 4);
+              font-variant: small-caps;
+              font-size: 150%;
+            }
+        
+            a {
+                    display: inline-block; 
+                    background-color: rgb(4, 62, 4);
+                    padding: 5px;
+                    border-radius: 5px;
+                }
+        
+                input[type="text"] {
+      padding: 8px;
+      border: 1px solid rgb(4, 62, 4);
+      border-radius: 4px;
+      width: 30%;
+      text-align: center;
+    }
+    select {
+      padding: 8px;
+      border: 1px solid rgb(4, 62, 4);
+      border-radius: 4px;
+      width: 30%;
+      text-align: center;
+    }
+  
+                 a {
+                    color: white; 
+                    text-decoration: none;
+                }
+
+                button {
+          border: none;
+          outline: 0;
+          display: inline-block;
+          padding: 10px;
+          color: white;
+          background-color:rgba(255, 255, 255, 0.527);
+          text-align: center;
+          cursor: pointer;
+          width: fit-content;
+          font-size: 18px;
+          
+        }
+          </style>
+        </head>
+        
+        <body>
+          <br>
+          <center>
+            <h2 class="main-heading">STATIONS</h2>
+          </center>
+          <form method="post" action="{% url 'update_status' %}">
+            {% csrf_token %}
+          <div class="container">
+            <ul>
+              {% for i in stations %}
+              <li>
+                <b>{{ i.name }}</b><br><br>
+                <input type="text" name="lino" value="{{ i.license_no }}" readonly></b><br><br>
+                Time: {{ i.time }}<br><br>
+                Location: {{ i.location }}<br><br>
+                Contact: {{ i.contact }}<br><br>
+                <td><select name="status">
+                  <option selected>{{i.status}}</option>
+                  <option value="Not Available">Not Available</option>
+                  <option value="Available">Available</option>
+                  </select>
+               </td><br><br>
+                Speed: {{ i.speed }}<br><br>
+                Price: {{i.price}}<br><br>
+                <a href="/delete_station/{{i.id}}">delete</a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <center><button type="submit">Update Status</button></center>
+          <br>
+          <center>
+          <a href="/ser_home" class="bn632-hover bn23">BACK</a>
+        </center>
+        </body>
+      </form>
+        </html>
+        
+      

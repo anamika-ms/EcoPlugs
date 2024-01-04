@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Services</title>
+  <style>
+   body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      background-image: url("{% static 'images\service.jpg' %}");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    .container {
+      max-width: 600px; /* Adjust the maximum width as needed */
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    h2.main-heading {
+      color: rgb(242, 234, 234);
+      font-family: "Times New Roman";
+      font-size: 250%;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      animation: slideAnimation 20s infinite linear; /* Adjust the animation duration */
+    }
+
+    li {
+      flex: 0 0 auto; /* Ensure each item is a fixed width */
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.791);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      text-align: center;
+      padding: 20px;
+      color: rgb(8, 8, 8);
+      margin-right: 20px; /* Adjust the margin between items */
+      box-sizing: border-box; /* Include padding and border in the width */
+      cursor: pointer; /* Add cursor pointer for clickable effect */
+    }
+
+    b {
+      color: rgb(90, 90, 225);
+      font-variant: small-caps;
+      font-size: 150%;
+    }
+
+    a {
+      display: inline-block; 
+      background-color: rgb(90, 90, 225);
+      padding: 5px;
+      border-radius: 5px;
+      color: white; 
+      text-decoration: none;
+    }
+
+    /* Additional style for the search bar */
+    form {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      border: 1px solid rgb(90, 90, 225);
+      border-radius: 4px;
+      width: 30%;
+      text-align: center;
+    }
+
+    input[type="submit"] {
+      background-color: rgb(90, 90, 225);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    @keyframes slideAnimation {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      10%, 90% {
+        transform: translateX(-20%);
+      }
+      20%, 80% {
+        transform: translateX(-40%);
+      }
+      30%, 70% {
+        transform: translateX(-60%);
+      }
+      40%, 60% {
+        transform: translateX(-80%);
+      }
+      50% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* Pause the animation on hover */
+    .container:hover ul {
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+
+<body>
+  
+  <center>
+    <h2 class="main-heading">SERVICES</h2>
+     <!-- Add the search form here -->
+     <form method="post" action="/services_search/">
+      {% csrf_token %}
+      <input type="text" name="search" placeholder="Search by location....">
+      <input type="submit" value="Search">
+    </form>
+  </center>
+
+  <div class="container">
+    <ul>
+      {% for i in data %}
+      <li>
+        <b>{{ i.name }}</b><br><br>
+        License No: {{ i.license_no }}<br><br>
+        Time: {{ i.time }}<br><br>
+        Location: {{ i.location }}<br><br>
+        Price: {{ i.price }}<br><br>
+        Contact: {{ i.contact }}<br><br>
+        Status: {{ i.status }}<br><br>
+        <a href="/payments/{{i.id}}">book now</a>
+
+        <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" 
+          scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q={{i.location}}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://mcpedls.com/">
+              minecraft download</a></div><style>.mapouter{position:relative;text-align:right;width:600px;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:600px;height:400px;}.gmap_iframe {width:600px!important;height:400px!important;}</style></div>
+    
+
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <center>
+    <a href="/home" class="bn632-hover bn23">BACK</a>
+  </center>
+</body>
+
+</html>

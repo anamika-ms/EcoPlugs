@@ -1,0 +1,90 @@
+{% load static %}
+<html>
+    <head>
+      <title>User Profile</title>
+      <style>
+        .card {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          max-width: 300px;
+          margin: auto;
+          text-align: center;
+          font-family: arial;
+          background-color: aliceblue;
+        }
+        
+        .title {
+          color: grey;
+          font-size: 18px;
+        }
+
+        body{
+  background-image: url("{% static 'images\cartt.jpg' %}");
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+        }
+        
+        button {
+          border: none;
+          outline: 0;
+          display: inline-block;
+          padding: 8px;
+          color: white;
+          background-color: rgba(0, 128, 0, 0.877);
+          text-align: center;
+          cursor: pointer;
+          width: 100%;
+          font-size: 18px;
+        }
+        
+        a {
+          text-decoration: none;
+          font-size: 22px;
+          color: white;
+          
+        }
+
+        p{
+          
+            color: rgb(16, 16, 16);
+            font-variant: small-caps ;
+        }
+
+        h2 {
+          color: green;
+          font-size: 200%;
+          font-variant: small-caps ;
+          }
+
+        h1{
+          font-variant: small-caps ;
+          color: green;
+        }
+
+        button:hover, a:hover {
+          opacity: 0.7;
+        }
+        </style>
+      </head>
+   <body> 
+      <!-- form section start -->   
+      <!-- <div class="wrapper bgded overlay" >
+        <img src="{% static 'images\demo\backgrounds\ration.webp' %}" alt="">-->
+          <br><br><br>
+        <h2 style="text-align:center">PROFILE</h2>
+        <br><br>
+        <div class="card">
+          <img src="{% static 'images\account.png' %}"  style="width:100%">
+          <h1>{{name}}</h1>
+          <p>Contact No :{{contact}}
+          <p>Email : {{email}}
+          <p><button><a class="nav-link" href="/index"> LOGOUT</a></button></p> 
+          
+          <button><a href="/home" class="bn632-hover bn23">BACK</a></button>
+
+        </div>
+   </body>
+</html>
+
+
+

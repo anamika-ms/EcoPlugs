@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stations List</title>
+        <style>
+             table,
+    th,
+    td {
+        padding: 10px;
+        font-size: larger;
+        font-variant: small-caps ;
+    }
+
+    a {
+          text-decoration: none;
+          font-size: 18px;
+          color: rgb(243, 18, 18);
+          
+        }
+
+    button {
+          border: none;
+          outline: 0;
+          display: inline-block;
+          padding: 10px;
+          color: white;
+          background-color:rgba(255, 255, 255, 0.527);
+          text-align: center;
+          cursor: pointer;
+          width: 70%;
+          font-size: 18px;
+          
+        }
+    table {
+        border-collapse: collapse;
+        width: 80%;
+        height: 80%;
+    }
+    table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+  
+}  
+    th, td {
+        text-align: center;
+        padding: 25px;
+    }
+      
+    tr {
+      background-color: #ebedefcb;
+    }
+            body{
+  background-image: url("{% static 'images\ev.jpeg' %}");
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+        }
+        h2 {
+            color: white;
+            font-size: 200%;
+            font-variant: small-caps ;
+          }
+        </style>
+
+</head>
+    <div class="container"> 
+        <center>
+        <h2 >
+          FEEDBACKS
+        </h2><br><br><br></center>
+        <p class="text-center">
+          <body>
+            <table border="1" 
+               align="center"><b><i>
+              <tr>                
+                  <th>FULL NAME</th>
+                  <th>LICENSE NO</th>
+                  <th>MESSAGE</th>
+                  <th>EMAIL</th>
+                  <th>REMOVE</th>
+              </tr>
+              {% for i in data %}
+              <tr>
+                  <td>{{i.fullname}}</td>
+                  <td>{{i.phone}}</td>
+                  <Td>{{i.message}}</Td>
+                  <td>{{i.email}}</td>
+                  <td><a href="/delete_record3/{{i.id}}">Delete</a></td>
+              </tr></i></b>
+              {% endfor %}
+          </table>
+          <br>
+          <center><button><a href="/admin_home">BACK</a></button></center>
+</body>
+</html>
+
