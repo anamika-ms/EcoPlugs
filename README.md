@@ -34,7 +34,7 @@ EVChargeHub consists of three primary modules: Station Provider, User, and Admin
 - **Python and Django:** Developers can contribute to the project using Python and the Django framework.
 
 ## Installation:
-1. Clone the repository: `git clone https://github.com/Anamika-Maker-Ctrl/EcoPlugs`
+1. Clone the repository: `git clone https://github.com/anamika-ms/EcoPlugs`
 2. Install dependencies: `pip install -r requirements.txt`
 3. Run the Django development server: `python manage.py runserver`
 
